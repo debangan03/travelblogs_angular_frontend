@@ -11,5 +11,5 @@ import { BlogsComponent } from './blogs/blogs.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'myapp';
+  title = 'travel blogs';
 }

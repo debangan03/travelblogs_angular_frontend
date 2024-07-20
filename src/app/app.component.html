@@ -1,28 +1,19 @@
 <header
-  class="flex justify-between items-center bg-orange-100/60 py-6 p-4 montserrat-font text-black"
+  class="lg:flex justify-between items-center sticky top-0 z-50 bg-orange-100 p-4 montserrat-font text-zinc-800"
 >
   <div>
-    <h2>Travel Blogs</h2>
+    <img src="https://i.ibb.co/qdZ4rmZ/icon.png" alt="Logo" class="w-20 h-8 mix-blend-multiply" />
   </div>
-  <ul class="flex space-x-10 items-center">
+  <ul class="flex lg:space-x-10 space-x-4 items-center">
     <li><a [routerLink]="['']">Home</a></li>
     <li><a [routerLink]="['/about']">About</a></li>
-    <li>Contact</li>
-    <li>Add blogs</li>
+    <li><a [routerLink]="['/contact']">Contact</a></li>
+    <li class="bg-orange-400 p-2 text-zinc-100 rounded-lg hover:scale-95 duration-200"><a [routerLink]="['/addblogs']">+ Add blogs</a></li>
   </ul>
 </header>
-<section class="text-gray-600 font-sans">
-  <div class="container px-5 py-4 mx-auto">
-    <div class="flex flex-wrap w-full">
-      <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-        <h1
-          class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
-        >
-          Recent Travel Blogs
-        </h1>
-        <div class="h-1 w-20 bg-orange-500 rounded"></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 <router-outlet></router-outlet>
+
+<footer class="bg-orange-200 text-center py-4">
+  <p class="text-gray-800">© 2024 Your Company. All rights reserved.</p>
+</footer>

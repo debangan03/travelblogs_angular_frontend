@@ -1,0 +1,31 @@
+
+<p-toast></p-toast>
+<form (ngSubmit)="onSubmit()" class="max-w-lg mx-auto p-6 min-h-screen bg-white shadow-md rounded-md mt-10">
+    <div class="mb-4">
+      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+      <input id="name" [(ngModel)]="blog.name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+    </div>
+    <div class="mb-4">
+      <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+      <input id="title" [(ngModel)]="blog.title" name="title" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+    </div>
+    <div class="mb-4">
+      <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+      <textarea id="description" [(ngModel)]="blog.description" name="description" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"></textarea>
+    </div>
+    <div class="mb-4">
+      <label for="imgurl" class="block text-sm font-medium text-gray-700">Image URL</label>
+      <input id="imgurl" [(ngModel)]="blog.imgurl" name="imgurl" (input)="onImageUrlChange()" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+    </div>
+    <div class="mb-4">
+      <label for="image" class="block text-sm font-medium text-gray-700">Or Upload Image</label>
+      <input type="file" id="image" (change)="onFileChange($event)" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+    </div>
+    <div *ngIf="previewUrl" class="mb-4">
+      <img [src]="previewUrl" alt="Image Preview" class="max-w-full h-auto rounded-md">
+    </div>
+    <button type="submit" class="w-full px-4 py-2 bg-orange-500 text-white font-semibold rounded-md shadow-md hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
+      Add Blog
+    </button>
+  </form>
+  

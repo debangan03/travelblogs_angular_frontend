@@ -1,8 +1,11 @@
-export class Blogs {
-  id: number | undefined;
-  title: string | undefined;
-  description: string | undefined;
-  date: string | undefined;
-  image: string | undefined;
-  owner: string | undefined;
+export interface Blogs {
+  _id: string;
+  name: string;
+  title: string;
+  description: string;
+  imgurl: string;
+  slug: string;
+  createdAt: string;
+  updatedAt: string;
+  likes?: number; // Making likes optional
 }

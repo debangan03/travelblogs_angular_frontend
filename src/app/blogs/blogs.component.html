@@ -1,6 +1,66 @@
-<section class="flex flex-wrap">
-    <div class="xl:w-1/4 md:w-1/2 p-4" *ngFor="let blog of blogs">
+
+
+
+<section class="relative">
+  <div class="flex mb-4   mt-4 absolute   lg:-bottom-20 z-30 lg:right-4 lg:left-[50%] left-2 right-2">
+    <div class="relative w-full">
+      <input
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="filterBlogs()"
+        placeholder="Search by title, description, or name"
+        class="px-10 py-2 w-full border border-zinc-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
+      />
+      <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <svg
+          class="h-5 w-5 text-zinc-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 4a6 6 0 110 12 6 6 0 010-12zM21 21l-4.35-4.35"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <app-image-slider [images]="[
+  { src: 'https://images.unsplash.com/photo-1627938823193-fd13c1c867dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80', desc: 'Banners' },
+  { src: 'https://i.ibb.co/FXc9g2p/ac.jpg', desc: 'Random Place 1' },
+  { src: 'https://i.ibb.co/BcyYpf4/bird.jpg', desc: 'Random Place 2' }
+]"></app-image-slider>
+
+</section>
+
+<section class="text-zinc-600 font-sans ">
+  <div class=" p-4">
+    <div class="flex flex-wrap w-full">
+      <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+        <h1
+          class="sm:text-3xl text-2xl font-medium title-font mb-2 text-zinc-900"
+        >
+          Recent Travel Blogs
+        </h1>
+        <div class="h-[3px] w-[17rem] bg-gradient-to-br from-orange-500 to-transparent rounded"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="flex flex-wrap min-h-screen">
+  <div *ngIf="blogs.length === 0" class="w-full h-screen flex justify-center items-center">
+    <div class="loader"></div>
+  </div>
+  <div *ngIf="filteredBlogs.length === 0" class="w-full h-screen flex justify-center items-center">
+    <p>No Blogs Fouund</p>
+  </div>
+  <ng-container *ngIf="filteredBlogs.length > 0">
+    
+    <div class="xl:w-1/4 md:w-1/2 p-2" *ngFor="let blog of filteredBlogs">
       <app-blogcard [blog]="blog"></app-blogcard>
     </div>
-  </section>
-  
+  </ng-container>
+</section>

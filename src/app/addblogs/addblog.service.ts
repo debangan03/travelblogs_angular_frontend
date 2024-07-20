@@ -6,13 +6,13 @@ import { Blogs } from '../Blogs';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogsService {
-  private apiUrl = 'https://travelblogs-backend.onrender.com'; // Replace with your API endpoint
+export class addBlogService {
+
+  private apiUrl = 'http://localhost:3000/addblog';
 
   constructor(private http: HttpClient) {}
 
-  getBlogs(): Observable<{ blogs: Blogs[] }> {
-    return this.http.get<{ blogs: Blogs[] }>(`${this.apiUrl}/getblogs`);
+  addBlog(blog: Blogs): Observable<Blogs> {
+    return this.http.post<Blogs>(this.apiUrl, blog);
   }
-  
 }
